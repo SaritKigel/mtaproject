@@ -36,18 +36,17 @@ app.post('/events', function (req, res) {
     res.sendFile(__dirname + "/" + "events.html");
 });
 
-app.get('/get_events_list', async function (req, res) {
-    let result = 'KABOOK';
-    try {
-        result = await connection.query('SELECT * FROM sadna.Events WHERE eventDate > CURDATE()');
-    }
-    catch (err) {
-        console.log(err);
-        return 'Nope!';
-    }
-    console.log(result);
-    return 'OK!';
-
+app.get('/get_events_list', function (req, res) {
+    connection.query('SELECT * FROM sadna.Events WHERE eventDate > CURDATE()', function(error, results, fields){
+        if (error){
+            console.log(error);
+            return 'NO';
+        }
+        else{
+            console.log(results);
+            return results;
+        }
+    });
 });
 
 /* route to handle login */
