@@ -11,7 +11,7 @@ var authenticateController = require('./controllers/authenticate-controller');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-`app.use(express.static('assets'));
+app.use(express.static('assets'));
 
 //Redirect homepage to login
 
