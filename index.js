@@ -37,7 +37,7 @@ app.post('/events', function (req, res) {
 });
 
 app.get('/get_events_list', function (req, res) {
-    connection.query('SELECT DATE_FORMAT(eventDate, \'%b %d, %Y\'), eventDescription FROM sadna.Events WHERE eventDate > CURDATE()', function(error, results, fields){
+    connection.query('SELECT DATE_FORMAT(eventDate, \'%b %d, %Y\') AS eventDate, eventDescription FROM sadna.Events WHERE eventDate > CURDATE()', function(error, results, fields){
         if (error){
             res.send(error);
         }
