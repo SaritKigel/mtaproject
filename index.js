@@ -39,6 +39,7 @@ app.post('/events', function (req, res) {
 app.get('/get_events_list', async function(req, res) {
     const result = connection.query('SELECT * FROM sadna.Events WHERE eventDate > CURDATE()');
     console.log(result);
+    return 'lol';
 });
 
 /* route to handle login */
