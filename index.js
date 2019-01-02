@@ -36,14 +36,15 @@ app.post('/events', function (req, res) {
     res.sendFile(__dirname + "/" + "events.html");
 });
 
-app.get('/get_events_list', async function (req, res) {
-    try {
-        const results = await connection.query('SELECT DATE_FORMAT(eventDate, \'%b %d, %Y\'), eventDescription FROM sadna.Events WHERE eventDate > CURDATE()')
-        res.send(results);
-    }
-    catch(err){
-        res.send(err);
-    }
+app.get('/get_events_list', function (req, res) {
+    connection.query('SELECT DATE_FORMAT(eventDate, \'%b %d, %Y\'), eventDescription FROM sadna.Events WHERE eventDate > CURDATE()', function(error, results, fields){
+        if (error){
+            res.send(error);
+        }
+        else{
+            res.send(results);
+        }
+    });
 });
 
 /* route to handle login */
