@@ -44,7 +44,7 @@ app.get('/get_events_list', function (req, res) {
         }
         else{
             console.log(results);
-            return results;
+            res.send(results);
         }
     });
 });
