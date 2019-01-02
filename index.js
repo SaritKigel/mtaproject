@@ -32,7 +32,7 @@ app.get('/events', function (req, res) {
 app.post('/events', function (req, res) {
     event_date = req.body['event_date'];
     event_description = req.body['event_description'];
-    connection.query(`INSERT INTO sadna.Events VALUES(${event_date}, ${event_description})`);
+    connection.query(`INSERT INTO sadna.Events VALUES(STR_TO_DATE('${event_date}', '%b %d, %Y'), '${event_description}')`);
     res.sendFile(__dirname + "/" + "events.html");
 });
 
