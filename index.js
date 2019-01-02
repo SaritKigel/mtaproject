@@ -37,7 +37,7 @@ app.post('/events', function (req, res) {
 });
 
 app.get('/get_events_list', async function (req, res) {
-    result = '';
+    result = 'KABOOK';
     try {
         const result = await connection.query('SELECT * FROM sadna.Events WHERE eventDate > CURDATE()');
     }
