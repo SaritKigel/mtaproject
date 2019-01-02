@@ -36,6 +36,11 @@ app.post('/events', function (req, res) {
     res.sendFile(__dirname + "/" + "events.html");
 });
 
+app.get('/get_events_list', async function(req, res) {
+    const result = connection.query('SELECT * FROM sadna.Events WHERE eventDate > CURDATE()');
+    console.log(result);
+});
+
 /* route to handle login */
 app.post('/api/authenticate', authenticateController.authenticate);
 
