@@ -38,7 +38,7 @@ app.post('/events', function (req, res) {
 
 app.get('/get_events_list', async function (req, res) {
     try {
-        results = await connection.query('SELECT DATE_FORMAT(eventDate, \'%b %d, %Y\'), eventDescription FROM sadna.Events WHERE eventDate > CURDATE()')
+        const results = await connection.query('SELECT DATE_FORMAT(eventDate, \'%b %d, %Y\'), eventDescription FROM sadna.Events WHERE eventDate > CURDATE()')
         res.send(results);
     }
     catch(err){
