@@ -22,16 +22,16 @@
 <form class="container" action="/events" method="post">
     <div class="row">
         <div class="input-field col s12">
-            <input type="text" class="datepicker" placeholder="Pick a date">
+            <input type="text" name="event_date" class="datepicker" placeholder="Pick a date">
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <input type="text" placeholder="What's the event?">
+            <input type="text" name="event_description" placeholder="What's the event?">
         </div>
     </div>
     <div class="row center">
-        <button class="btn waves-effect waves-light blue" type="submit" name="action">הוסף אירוע</button>
+        <button class="btn waves-effect waves-light blue" type="submit">הוסף אירוע</button>
     </div>
 </form>
 </body>

@@ -30,7 +30,9 @@ app.get('/events', function (req, res) {
 });
 
 app.post('/events', function (req, res) {
-    // Add the logic of inserting to the database
+    event_date = req.body['event_date'];
+    event_description = req.body['event_description'];
+    connection.query(`INSERT INTO sadna.Events VALUES(${event_date}, ${event_description})`);
     res.sendFile(__dirname + "/" + "events.html");
 });
 
