@@ -44,6 +44,7 @@ app.get('/get_events_list', async function (req, res) {
         console.log(err);
         return 'Nope!';
     }
+    console.log(result);
     return 'OK!';
 
 });
