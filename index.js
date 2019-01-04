@@ -29,6 +29,10 @@ app.get('/events', function (req, res) {
     res.sendFile(__dirname + "/" + "events.html");
 });
 
+app.get('/test', function(req, res){
+    res.sendFile(__dirname + "/" + "test.html");
+});
+
 app.post('/events', function (req, res) {
     event_date = req.body['event_date'];
     event_description = req.body['event_description'];
